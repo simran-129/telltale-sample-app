@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Study Room – Campus Connect</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">Campus Connect</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="book.html" class="active">Book a Room</a>
+        <!-- PLANTED ISSUE #1 (see index.html) -->
+        <a href="directory.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Book a Study Room</h1>
+    <p class="intro">Rooms can be booked up to 7 days ahead. Bookings are for one hour.</p>
+
+    <div class="form-box">
+      <!-- Error messages appear here. JavaScript fills it in when needed. -->
+      <div id="error-box" class="error-box" role="alert"></div>
+
+      <!--
+        action="confirmation.html" means: when the form is submitted, go to that page.
+        method="get" means: put the answers in the web address (nothing is sent to a server).
+        novalidate turns off the browser's own pop-up checks, so our JavaScript does the checking.
+      -->
+      <form id="booking-form" action="confirmation.html" method="get" novalidate>
+
+        <div class="field">
+          <label for="room">Room</label>
+          <!-- data-seats stores how many people each room holds. JavaScript reads it.
+               PLANTED ISSUE #5 (part 1): the room names don't say how many people fit.
+               That's only in the "Room info" table further down the page, so many
+               people will pick a room that's too small. A better version would
+               show it right here, e.g. "Quiet Pod A (seats 2)". -->
+          <select id="room" name="room">
+            <option value="">Choose a room</option>
+            <option value="Quiet Pod A" data-seats="2">Quiet Pod A</option>
+            <option value="Quiet Pod B" data-seats="2">Quiet Pod B</option>
+            <option value="Group Room 1" data-seats="4">Group Room 1</option>
+            <option value="Group Room 2" data-seats="4">Group Room 2</option>
+            <option value="Group Room 3" data-seats="6">Group Room 3</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="date">Date</label>
+          <!-- Empty on purpose: js/book.js adds the next 7 days here. -->
+          <select id="date" name="date">
+            <option value="">Choose a date</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="time">Time</label>
+          <!-- PLANTED ISSUE #4: times are in 24-hour format with no
+               "Morning / Afternoon" grouping, so people must work out which are afternoon. -->
+          <select id="time" name="time">
+            <option value="">Choose a time</option>
+            <option>09:00–10:00</option>
+            <option>10:00–11:00</option>
+            <option>11:00–12:00</option>
+            <option>12:00–13:00</option>
+            <option>13:00–14:00</option>
+            <option>14:00–15:00</option>
+            <option>15:00–16:00</option>
+            <option>16:00–17:00</option>
+            <option>17:00–18:00</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="people">Number of people</label>
+          <select id="people" name="people">
+            <option value="">Choose</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="email">University email</label>
+          <input id="email" name="email" type="email" autocomplete="off" placeholder="you@campus.edu">
+        </div>
+
+        <button type="submit" class="button">Book room</button>
+      </form>
+    </div>
+
+    <!-- Room sizes live here, separate from the form (part of PLANTED ISSUE #5) -->
+    <h2 class="room-info-heading">Room info</h2>
+    <table class="room-table">
+      <thead>
+        <tr><th>Room</th><th>Seats</th><th>Features</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Quiet Pod A</td><td>2</td><td>Desk lamp, power outlets</td></tr>
+        <tr><td>Quiet Pod B</td><td>2</td><td>Desk lamp, power outlets</td></tr>
+        <tr><td>Group Room 1</td><td>4</td><td>Whiteboard</td></tr>
+        <tr><td>Group Room 2</td><td>4</td><td>Whiteboard, wall screen</td></tr>
+        <tr><td>Group Room 3</td><td>6</td><td>Whiteboard, wall screen, webcam</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer class="site-footer">
+    Campus Connect is a fictional site made for usability testing. All data is fake.
+  </footer>
+
+  <!-- Load the JavaScript last, so the form above already exists when it runs -->
+  <script src="js/book.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources – Campus Connect</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">Campus Connect</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="book.html">Book a Room</a>
+        <!-- PLANTED ISSUE #1 (see index.html) -->
+        <a href="directory.html" class="active">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Campus Offices</h1>
+    <p class="intro">Find contact details and hours for campus offices.</p>
+
+    <!-- PLANTED ISSUE #2: this search only looks at office names (see js/directory.js) -->
+    <label for="search" class="visually-hidden">Search offices</label>
+    <input id="search" class="search-box" type="text" placeholder="Search offices">
+
+    <!-- Empty on purpose: js/directory.js adds the office cards here -->
+    <div id="office-list"></div>
+  </main>
+
+  <footer class="site-footer">
+    Campus Connect is a fictional site made for usability testing. All data is fake.
+  </footer>
+
+  <script src="js/directory.js"></script>
+</body>
+</html>

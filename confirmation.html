@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed – Campus Connect</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">Campus Connect</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="book.html">Book a Room</a>
+        <!-- PLANTED ISSUE #1 (see index.html) -->
+        <a href="directory.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Booking Confirmed</h1>
+
+    <div class="success-banner">
+      ✓ Your study room is booked. Booking number: <span id="booking-number"></span>
+    </div>
+
+    <!-- js/confirmation.js fills in the blank spaces below -->
+    <dl class="summary-list">
+      <dt>Room</dt>             <dd id="sum-room"></dd>
+      <dt>Date</dt>             <dd id="sum-date"></dd>
+      <dt>Time</dt>             <dd id="sum-time"></dd>
+      <dt>Number of people</dt> <dd id="sum-people"></dd>
+      <dt>Booked by</dt>        <dd id="sum-name"></dd>
+    </dl>
+
+    <p class="intro">This is a practice site, so no email will be sent.</p>
+    <a class="button" href="index.html">Back to home</a>
+  </main>
+
+  <footer class="site-footer">
+    Campus Connect is a fictional site made for usability testing. All data is fake.
+  </footer>
+
+  <script src="js/confirmation.js"></script>
+</body>
+</html>

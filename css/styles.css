@@ -1,0 +1,267 @@
+/* =========================================================
+   Campus Connect — shared styles for every page
+   ========================================================= */
+
+/* Colors are stored as "variables" so you can change them in one place. */
+:root {
+  --brand: #1f4e8c;       /* dark blue for the header and buttons */
+  --brand-light: #e8f0fb; /* pale blue for highlights */
+  --text: #222;
+  --muted: #666;
+  --border: #d6d9de;
+  --error-bg: #fdecec;
+  --error-text: #a12020;
+  --success-bg: #e9f7ee;
+  --success-text: #1d6b3a;
+}
+
+/* Basic page setup */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: #f6f7f9;
+  line-height: 1.5;
+}
+
+/* ---------- Header and top menu ---------- */
+.site-header {
+  background: var(--brand);
+  color: white;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;           /* lets the menu drop to a new line on phones */
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  padding-bottom: 2px;
+}
+
+.main-nav a:first-child { margin-left: 0; }
+.main-nav a:hover { text-decoration: underline; }
+
+/* The page you're on gets an underline */
+.main-nav a.active { border-bottom: 2px solid white; }
+
+/* ---------- Main content area ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { margin-top: 0; }
+
+.intro { color: var(--muted); }
+
+/* ---------- Home page cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover { background: #163a69; }
+
+/* ---------- Booking form ---------- */
+.form-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 520px;
+}
+
+.field { margin-bottom: 16px; }
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.field select,
+.field input {
+  width: 100%;
+  padding: 9px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+/* Box that shows error messages. Hidden until there's an error. */
+.error-box {
+  display: none;
+  background: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid #f3b9b9;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.error-box.visible { display: block; }
+
+/* ---------- Room info table (below the booking form) ---------- */
+.room-info-heading {
+  margin-top: 32px;
+  font-size: 1.1rem;
+}
+
+.room-table {
+  width: 100%;
+  max-width: 520px;
+  border-collapse: collapse;   /* removes the gaps between cell borders */
+  background: white;
+  font-size: 0.95rem;
+}
+
+.room-table th,
+.room-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+}
+
+.room-table th { background: #f0f2f5; }
+
+/* ---------- Office directory ---------- */
+.search-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+.office {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+
+.office h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.office .summary {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* PLANTED ISSUE #3: the "Details" link is small and pale grey,
+   so it's easy to miss. A better version would be dark and clearly a button. */
+.details-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #b5b9bf;
+  cursor: pointer;
+}
+
+.office-details {
+  display: none;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+.office-details.open { display: block; }
+
+.office-details p { margin: 2px 0; }
+
+.no-results { color: var(--muted); font-style: italic; }
+
+/* Hides a label from sight but keeps it readable by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Confirmation page ---------- */
+.success-banner {
+  background: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid #b6e0c4;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.summary-list {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  max-width: 520px;
+}
+
+.summary-list dt { font-weight: 600; margin-top: 8px; }
+.summary-list dt:first-child { margin-top: 0; }
+.summary-list dd { margin: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 20px 16px;
+}
